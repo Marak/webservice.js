@@ -1,12 +1,13 @@
 var webservice = require('./lib/webservice'),
     fs         = require('fs'),
-    sys        = require('sys');
+    sys        = require('sys'),
+    demoModule = require('./demoModule');
 
-
-//webservice.start('the sys module webservice', sys);
 
 webservice.createServer({
+  'demoModule': demoModule,
   'fs': fs,
   'sys': sys
-  }).listen(8080);
+}).listen(8080);
+
 
