@@ -1,9 +1,10 @@
 // dummy module
-
 exports.hello = function(){
-  return 'hello';
+  return 'hello world';
 };
 
 exports.asyncHello = function(callback){
-  callback();
+  setTimeout(function(){
+    callback();
+  }, 3000);
 }
