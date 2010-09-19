@@ -1,11 +1,10 @@
 # webservice.js - turn CommonJS modules into web-services
 
-webservice.js is a node.js module that allows developers to easily create web-services based on the exports of CommonJS modules.
+webservice.js is a node.js module that allows developers to easily create web-services based on the exports of CommonJS modules
 
 ## usage
 
-
-### server.js
+### demo.js
 
       var webservice = require('./lib/webservice'),
           fs         = require('fs'),
@@ -28,3 +27,8 @@ http://localhost:8080/demoModule/asyncHello?fn=function(){return%20'hello';}
 http://localhost:8080/fs/writeFile?filename=bar.txt&content=lol
 
 http://localhost:8080/fs/writeFile?filename=foo.txt&content=lol&enc=binary&fn=function(err,rsp){console.log('lol%20file%20created');}
+
+
+### author
+
+Marak Squires
