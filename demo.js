@@ -5,5 +5,8 @@ var webservice = require('./lib/webservice'),
 
 //webservice.start('the sys module webservice', sys);
 
-webservice.createServer('the fs module webservice', fs).listen(8080);
+webservice.createServer({
+  'fs': fs,
+  'sys': sys
+  }).listen(8080);
 
