@@ -1,7 +1,7 @@
 var webservice = require('./lib/webservice'),
+    demoModule = require('./demoModule'),
     fs         = require('fs'),
-    sys        = require('sys'),
-    demoModule = require('./demoModule');
+    sys        = require('sys');
 
 
 webservice.createServer({
