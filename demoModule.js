@@ -1,10 +1,10 @@
-// dummy module
+// demo module
 exports.hello = function(){
   console.log('hello world');
   return 'hello world';
 };
 
-exports.asyncHello = function(callback, res){
+exports.asyncHello = function(res, callback){
   setTimeout(function(){
     console.log('hello world');
     if(typeof callback == 'function'){
