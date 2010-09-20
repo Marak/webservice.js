@@ -4,7 +4,7 @@ webservice.js is a node.js module that allows developers to easily create web-se
 
 ## usage
 
-webservice.js current has one method, createServer. createServer takes an object of labels and CommonJS modules. let's create a basic CommonJS module for this example.
+webservice.js currently has one method, createServer. createServer takes an object of labels and CommonJS modules. let's create a basic CommonJS module for this example.
 
 
 ### demoModule.js
