@@ -1,5 +1,5 @@
 # webservice.js - turn CommonJS modules into web-services
-
+#### v0.1.0
 webservice.js is a node.js module that allows developers to easily create web-services based on the exports of CommonJS modules
 
 ## usage
