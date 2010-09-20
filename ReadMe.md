@@ -38,24 +38,36 @@ now that we have created this module, we will create a server.js file. in this f
       }).listen(8080);
 
 
-this will create a webservice that will serve the exports of demoModule, fs, and sys.
+this will create a web-service that will serve the exports of demoModule, fs, and sys.
 
         node server.js
 
 
-### there is now a web-service running @ http://localhost:8080/ , try it out!
+### there is now a web-service running @ http://localhost:8080/ with the following resources:
 
+ - /demoModule
+ - /fs
+ - /sys
 
-### now try hitting up these urls
+you can navigate to any of these pages and it will return documentation for that module.  
 
-http://localhost:8080/demoModule/hello
+### to try and invoke methods, you can GET the following urls:
+
+[http://localhost:8080/demoModule/hello](http://localhost:8080/demoModule/hello)
+
+[http://localhost:8080/sys/puts?a=Hello%20World](http://localhost:8080/sys/puts?a=Hello%20World)
 
 http://localhost:8080/demoModule/asyncHello?fn=function(){return%20'hello';}
 
-http://localhost:8080/fs/writeFile?filename=bar.txt&content=lol
+[http://localhost:8080/fs/writeFile?filename=bar.txt&content=lol](http://localhost:8080/fs/writeFile?filename=bar.txt&content=lol)
 
 http://localhost:8080/fs/writeFile?filename=foo.txt&content=lol&enc=binary&fn=function(err,rsp){console.log('lol%20file%20created');}
 
+
+##todo
+
+ - fix async callbacks so they actually return data to the browser
+ - add POST support
 
 ### author
 
