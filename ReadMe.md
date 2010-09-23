@@ -60,13 +60,13 @@ you can navigate to any of these pages and it will return documentation for that
 
 [http://localhost:8080/demoModule/hello](http://localhost:8080/demoModule/hello)
 
-[http://localhost:8080/sys/puts?a=Hello%20World](http://localhost:8080/sys/puts?a=Hello%20World)
+[http://localhost:8080/sys/puts/Hello%20World](http://localhost:8080/sys/puts?a=Hello%20World)
 
-http://localhost:8080/demoModule/asyncHello?fn=function(){return%20'hello';}
+http://localhost:8080/demoModule/asyncHello/
 
-[http://localhost:8080/fs/writeFile?filename=bar.txt&content=lol](http://localhost:8080/fs/writeFile?filename=bar.txt&content=lol)
+[http://localhost:8080/fs/writeFile/bar.txt/lol](http://localhost:8080/fs/writeFile/bar.txt/lol)
 
-http://localhost:8080/fs/writeFile?filename=foo.txt&content=lol&enc=binary&fn=function(err,rsp){console.log('lol%20file%20created');}
+http://localhost:8080/fs/writeFile/foo.txt/lol/binary
 
 
 ##todo
