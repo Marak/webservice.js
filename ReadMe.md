@@ -73,7 +73,6 @@ http://localhost:8080/fs/writeFile?filename=foo.txt&content=lol&enc=binary&fn=fu
 
  - remove ability to perform anonymous callbacks (security issue)
  - add POST support
- - remove query params and make the whole thing more RESTFul
 
 ### author
 
