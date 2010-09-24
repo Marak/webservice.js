@@ -11,7 +11,7 @@ exports.ping = function(callback){
   }
  
   setTimeout(function(){
-    callback('pong');
+    callback(null, 'pong');
   }, 2000);
 
 }

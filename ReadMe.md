@@ -22,7 +22,7 @@ to start, let's create a basic node module
       }
  
       setTimeout(function(){
-        callback('pong');
+        callback(null, 'pong');
       }, 3000);
 
     }
