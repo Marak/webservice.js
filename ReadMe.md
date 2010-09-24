@@ -122,6 +122,10 @@ tests are good. npm install vows, then run:
 
      vows tests/*
 
+## todo
+
+- add better POST support. 
+- add better content type / mime type handling
 
 ## author
 
