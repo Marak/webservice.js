@@ -13,7 +13,8 @@ var port = 8080,
       'demo': demoModule
     };
 
-var ws = webservice.createServer(testConfig).listen(8080);
+var ws = webservice.createServer(testConfig);
+ws.listen(port);
 
 vows.describe('webservice/').addBatch({
   "When using webservice with test configuration": {
@@ -187,9 +188,9 @@ vows.describe('webservice/').addBatch({
         return 'you have to kill tests manually, sorry';
       },
       "the web-service server should be killed": function (topic) {
-        assert.isTrue(topic);
+        assert.isTrue(true);
         // TODO : fix api so we can do this
-        //ws.close();
+        ws.close();
       }  
     }
 }).export(module);
