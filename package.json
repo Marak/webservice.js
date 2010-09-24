@@ -1,0 +1,14 @@
+{
+  "name": "webservice",
+  "description": "turns modules into RESTFul web-services",
+  "version": "0.2.0",
+  "author": "Marak Squires <marak.squires@gmail.com>",
+  "repository": {
+      "type": "git",
+      "url": "http://github.com/marak/webservice.js.git" 
+  },
+  "keywords": ["webservice", "REST", "web-service", "JSON"],
+  "main": "./lib/webservice",
+  "scripts": { "test": "vows" },
+  "engines": { "node": ">= 0.2.0" }
+}
