@@ -6,10 +6,9 @@ var webservice = require('./lib/webservice'),
 
 
 webservice.createServer({
-  'demoModule': demoModule,
+  'demo': demoModule,
   'fs': fs,
-  'sys': sys,
-  'assert': assert
+  'sys': sys
 }).listen(8080);
 
 

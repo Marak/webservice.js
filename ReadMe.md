@@ -1,5 +1,5 @@
 # webservice.js - turn CommonJS modules into web-services
-#### v0.1.1
+#### v0.0.0 (releasing soon)
 webservice.js is a node.js module that allows developers to easily create web-services based on the exports of CommonJS modules
 
 ## usage
@@ -10,20 +10,20 @@ webservice.js currently has one method, createServer. createServer takes an obje
 ### demoModule.js
 
     // demo module
-    exports.hello = function(){
-      console.log('hello world');
-      return 'hello world';
+    exports.echo = function(msg){
+      return msg;
     };
 
-    exports.asyncHello = function(res, callback){
+    exports.ping = function(callback){
+
+      if(typeof callback !== 'function'){
+        return 'pong, with no callback';
+      }
+ 
       setTimeout(function(){
-        console.log('hello world');
-        if(typeof callback == 'function'){
-          // callback is going to return a value. if we wanted to continue the chain here, we could pass res
-          var result = callback();
-          res.send(200, {'Content-Type': 'application/json'}, JSON.stringify(result));
-        }
+        callback('pong');
       }, 3000);
+
     }
 
 now that we have created this module, we will create a server.js file. in this file we will require webservice and our demoModule.js. we are also going to expose the native fs and sys module in our web-service.
