@@ -68,7 +68,7 @@ vows.describe('webservice/').addBatch({
     "a GET request against /demo/echo": {
       topic: function() {
         var options = {
-          uri: host + ':' + port + '/demo/echo',
+          uri: host + ':' + port + '/demo/echo/',
           method: 'GET'
         };
         
@@ -81,7 +81,7 @@ vows.describe('webservice/').addBatch({
     "a GET request against /demo/echo/ohai": {
       topic: function() {
         var options = {
-          uri: host + ':' + port + '/demo/echo/ohai',
+          uri: host + ':' + port + '/demo/echo/ohai/',
           method: 'GET'
         };
         
@@ -98,7 +98,7 @@ vows.describe('webservice/').addBatch({
     "a POST request to /demo/echo": {
       topic: function() {
         var options = {
-          uri: host + ':' + port + '/demo/echo',
+          uri: host + ':' + port + '/demo/echo/',
           method: 'POST',
           body: JSON.stringify(["ohai", "helo"])
         };
@@ -115,7 +115,7 @@ vows.describe('webservice/').addBatch({
     "a GET request against /demo/ping (no callback)": {
       topic: function() {
         var options = {
-          uri: host + ':' + port + '/demo/ping',
+          uri: host + ':' + port + '/demo/ping/',
           method: 'GET'
         };
         
@@ -129,10 +129,10 @@ vows.describe('webservice/').addBatch({
         assert.equal(result, 'pong, with no callback');
       }
     },
-    "a GET request against /demo/ping/async": {
+    "a GET request against /demo/ping/async/": {
       topic: function() {
         var options = {
-          uri: host + ':' + port + '/demo/ping/async',
+          uri: host + ':' + port + '/demo/ping/async/',
           method: 'GET'
         };
         
@@ -146,10 +146,10 @@ vows.describe('webservice/').addBatch({
         assert.equal(result, 'pong');
       }
     },
-    "a POST request against /demo/ping (no callback)": {
+    "a POST request against /demo/ping/ (no callback)": {
       topic: function() {
         var options = {
-          uri: host + ':' + port + '/demo/ping',
+          uri: host + ':' + port + '/demo/ping/',
           method: 'POST'
         };
         
