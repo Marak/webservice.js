@@ -11,4 +11,4 @@ webservice.createServer({
   'sys': sys
 }).listen(8080);
 
-
+console.log(' > json webservice started on port 8080');  

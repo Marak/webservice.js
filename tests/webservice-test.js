@@ -81,6 +81,23 @@ vows.describe('webservice/').addBatch({
     "a GET request against /demo/echo/ohai": {
       topic: function() {
         var options = {
+          uri: host + ':' + port + '/demo/echo/ohai',
+          method: 'GET'
+        };
+        
+        request(options, this.callback)
+      },
+      "should respond with 200": function (error, response, body) {
+        assert.equal(response.statusCode, 200);
+      },
+      "should respond with ohai": function (error, response, body) {
+        var result = JSON.parse(body); 
+        assert.equal(result, 'ohai');
+      }
+    },
+    "a GET request against /demo/echo/ohai/": {
+      topic: function() {
+        var options = {
           uri: host + ':' + port + '/demo/echo/ohai/',
           method: 'GET'
         };
@@ -93,6 +110,40 @@ vows.describe('webservice/').addBatch({
       "should respond with ohai": function (error, response, body) {
         var result = JSON.parse(body); 
         assert.equal(result, 'ohai');
+      }
+    },
+    "a GET request against /demo/echo/1": {
+      topic: function() {
+        var options = {
+          uri: host + ':' + port + '/demo/echo/1',
+          method: 'GET'
+        };
+        
+        request(options, this.callback)
+      },
+      "should respond with 200": function (error, response, body) {
+        assert.equal(response.statusCode, 200);
+      },
+      "should respond with 1": function (error, response, body) {
+        var result = JSON.parse(body); 
+        assert.equal(result, '1');
+      }
+    },
+    "a GET request against /demo/echo/1/": {
+      topic: function() {
+        var options = {
+          uri: host + ':' + port + '/demo/echo/1/',
+          method: 'GET'
+        };
+        
+        request(options, this.callback)
+      },
+      "should respond with 200": function (error, response, body) {
+        assert.equal(response.statusCode, 200);
+      },
+      "should respond with 1": function (error, response, body) {
+        var result = JSON.parse(body); 
+        assert.equal(result, '1');
       }
     },
     "a POST request to /demo/echo": {
