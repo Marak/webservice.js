@@ -14,14 +14,35 @@ webservice.js is a node.js module that allows developers to easily create RESTFu
   npm install webservice
 </pre>
 
-## usage
+## FEATURES
 
-webservice.js currently has one method, createServer. createServer takes an object of labels and node modules and starts up a new web-service. 
+- Creates RESTful web-services from node.js modules
+- Can export an httpServer instance
+- Works as a middle-ware in Connect or stack
 
-to start, let's create a basic node module
+## Setting up a webservice
+
+### As a standalone httpServer
+
+    var webservice = require('webservice'),
+        demoModule = require('./demoModule'),
+        fs         = require('fs'),
+        sys        = require('sys');
 
 
-### demoModule.js
+    webservice.createServer({
+      'demo': demoModule,
+      'fs': fs,
+      'sys': sys
+    }).listen(8080);
+
+### As a middleware ( see: Connect and stack examples)
+
+
+
+### Creating a demo module to be exported
+
+#### demoModule.js
 
     exports.echo = function(msg){
       return msg;
@@ -39,42 +60,21 @@ to start, let's create a basic node module
 
     }
 
-now that we have created this module, we will create a server.js file. in this file we will require webservice and our demoModule.js. for fun, we are also going to expose the native fs and sys modules.
+## Usage
 
-### server.js
-
-      var webservice = require('webservice'),
-          demoModule = require('./demoModule'),
-          fs         = require('fs'),
-          sys        = require('sys');
-
-
-      webservice.createServer({
-        'demo': demoModule,
-        'fs': fs,
-        'sys': sys
-      }).listen(8080);
-
-
-to start up the server, run: 
-
-        node server.js
-
-
-now, you can navigate to any of the following pages to get html documentation.
+after starting up server.js, we can navigate to any of the following pages to get html documentation.
 
  - [http://localhost:8080/demo](http://localhost:8080/demo)
  - [http://localhost:8080/fs](http://localhost:8080/fs)
  - [http://localhost:8080/sys](http://localhost:8080/sys)
 
-you can also append ".json" to the end of any of these resources to get the documentation in JSON. 
+we can also append ".json" to the end of any of these resources to get the documentation in JSON. 
 
  - [http://localhost:8080/demo.json](http://localhost:8080/demo.json)
  - [http://localhost:8080/fs.json](http://localhost:8080/fs.json)
  - [http://localhost:8080/sys.json](http://localhost:8080/sys.json)
 
-### to invoke methods, you can try the following requests:
-
+### invoking webservice methods
 
      curl http://localhost:8080/demo/echo/hello
      "hello"
@@ -84,7 +84,6 @@ you can also append ".json" to the end of any of these resources to get the docu
 
      curl http://localhost:8080/fs/readFile/server.js/async
      (returns contents of the server.js file)
-
 
      curl http://localhost:8080/fs/writeFile/bar.txt/foo/binary/async
      (waits for bar.txt file to create with "foo" as content)
@@ -105,7 +104,7 @@ you can also append ".json" to the end of any of these resources to get the docu
 all web-service calls are assumed to be synchronous by default. this means, that if you call a method from the web-service, it will return instantly. if the method you called required a callback, this callback will never fire. if you want to specify a method to be asyncronous, simply add "/async" as the last argument in your route.
 
 
-####async method example
+#### async method example
 
      GET /demo/ping
 
@@ -126,6 +125,7 @@ tests are good. npm install vows, then run:
 
 - add better POST support. 
 - add better content type / mime type handling
+- add better HTTP verb support
 
 ## author
 

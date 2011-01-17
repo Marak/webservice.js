@@ -1,0 +1,14 @@
+var ws = require('webservice'),
+    demoModule = require('../demoModule'),
+    fs = require('fs'),
+    sys = require('sys');
+
+module.exports = function setup() {
+  var handler = ws.createHandler({
+    'demo': demoModule,
+    'fs': fs,
+    'sys': sys
+  });
+  return handler;
+  
+};
