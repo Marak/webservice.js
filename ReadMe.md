@@ -1,5 +1,5 @@
 # webservice.js - turn node.js modules into web-services
-#### v0.2.0
+#### v0.3.0
 webservice.js is a node.js module that allows developers to easily create RESTFul web-services based on the exports of node.js modules
 
 ## installation
@@ -36,11 +36,37 @@ webservice.js is a node.js module that allows developers to easily create RESTFu
       'sys': sys
     }).listen(8080);
 
-### As a middleware ( see: Connect and stack examples)
+### Using Connect
+
+    var connect    = require('connect'),
+        server     = connect.createServer(),
+        webservice = require('../../lib/webservice'),
+        demoModule = require('../demoModule'),
+        fs         = require('fs'),
+        sys        = require('sys');
+
+
+    server.use(connect.logger());
+
+    server.use(webservice.createHandler({
+      'demo': demoModule,
+      'fs': fs,
+      'sys': sys
+    }));
+
+    server.listen(3000);
+
+### Using stack
+
+    var http = require('http');
+
+    http.createServer(require('stack')(
+      require('./webservice.stack')()
+    )).listen(8080);
 
 
 
-### Creating a demo module to be exported
+### The demo module
 
 #### demoModule.js
 

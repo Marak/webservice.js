@@ -1,7 +1,7 @@
 {
   "name": "webservice",
   "description": "turns modules into RESTFul web-services",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": "Marak Squires <marak.squires@gmail.com>",
   "repository": {
       "type": "git",
