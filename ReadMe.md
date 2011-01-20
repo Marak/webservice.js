@@ -25,34 +25,21 @@ webservice.js is a node.js module that allows developers to easily create RESTFu
 ### As a standalone httpServer
 
     var webservice = require('webservice'),
-        demoModule = require('./demoModule'),
-        fs         = require('fs'),
-        sys        = require('sys');
+        demoModule = require('./demoModule');
 
-
-    webservice.createServer({
-      'demo': demoModule,
-      'fs': fs,
-      'sys': sys
-    }).listen(8080);
+    webservice.createServer(demoModule).listen(8080);
 
 ### Using Connect
 
     var connect    = require('connect'),
         server     = connect.createServer(),
         webservice = require('../../lib/webservice'),
-        demoModule = require('../demoModule'),
-        fs         = require('fs'),
-        sys        = require('sys');
+        demoModule = require('../demoModule');
 
 
     server.use(connect.logger());
 
-    server.use(webservice.createHandler({
-      'demo': demoModule,
-      'fs': fs,
-      'sys': sys
-    }));
+    server.use(webservice.createHandler(demoModule));
 
     server.listen(3000);
 
@@ -70,19 +57,41 @@ webservice.js is a node.js module that allows developers to easily create RESTFu
 
 #### demoModule.js
 
+    // demo module
     exports.echo = function(msg){
-      return msg;
+
+      // this.verbs defaults to: ['GET','POST','PUT','DELETE']
+      // optionally we can restrict verbs
+      this.verbs = ['GET', 'POST'];
+  
+      // this.docs is used to store a quick description of the method 
+      // it's optional
+      this.docs = "this is the friggin echo method";
+  
+      this.callback(null, msg);
     };
 
-    exports.ping = function(callback){
 
-      if(typeof callback !== 'function'){
-        return 'pong, with no callback';
-      }
- 
+    exports.private_echo = function(msg){
+
+      // this.private defaults to: false
+      // optionally we can restrict methods to be "private"
+      // right now, a "private" method still exists to the public, but is hidden from documentation
+      this.private = true;
+
+      // this.docs is used to store a quick description of the method 
+      // it's optional
+      this.docs = "this is kinda private, not really.";
+  
+      this.callback(null, msg);
+  
+    };
+
+    exports.ping = function(){
+      this.docs = "this is the ping method. it pongs back at you!";
+      this.callback(null, 'pong');
       setTimeout(function(){
-        callback(null, 'pong');
-      }, 3000);
+      }, 2000);
 
     }
 
@@ -124,21 +133,6 @@ we can also append ".json" to the end of any of these resources to get the docum
 
 
      {['hello']}
-
-## async web-service calls
-
-all web-service calls are assumed to be synchronous by default. this means, that if you call a method from the web-service, it will return instantly. if the method you called required a callback, this callback will never fire. if you want to specify a method to be asyncronous, simply add "/async" as the last argument in your route.
-
-
-#### async method example
-
-     GET /demo/ping
-
-this will cause the web-service to respond immediately
-
-     GET /demo/ping/async
-
-this will cause the web-service to wait respond until the callback is fired
 
 
 ## tests

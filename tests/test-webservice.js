@@ -58,10 +58,10 @@ vows.describe('webservice/').addBatch({
         assert.equal(response.statusCode, 200);
       }
     },
-    "a GET request against /echo/ohai": {
+    "a GET request against /echo?msg=ohai": {
       topic: function() {
         var options = {
-          uri: host + ':' + port + '/echo/ohai',
+          uri: host + ':' + port + '/echo?msg=ohai',
           method: 'GET'
         };
         
@@ -75,10 +75,10 @@ vows.describe('webservice/').addBatch({
         assert.equal(result, 'ohai');
       }
     },
-    "a GET request against /echo/ohai/": {
+    "a GET request against /echo?msg=ohai": {
       topic: function() {
         var options = {
-          uri: host + ':' + port + '/echo/ohai/',
+          uri: host + ':' + port + '/echo?msg=ohai',
           method: 'GET'
         };
         
@@ -92,10 +92,10 @@ vows.describe('webservice/').addBatch({
         assert.equal(result, 'ohai');
       }
     },
-    "a GET request against /echo/1": {
+    "a GET request against /echo?msg=1": {
       topic: function() {
         var options = {
-          uri: host + ':' + port + '/echo/1',
+          uri: host + ':' + port + '/echo?msg=1',
           method: 'GET'
         };
         
