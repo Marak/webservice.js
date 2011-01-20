@@ -8,12 +8,9 @@ var vows       = require('vows'),
     eyes       = require('eyes');
 
 var port = 8081,
-    host  = 'http://localhost',
-    testConfig = {
-      'demo': demoModule
-    };
+    host  = 'http://localhost';
 
-var ws = webservice.createServer(testConfig);
+var ws = webservice.createServer(demoModule);
 ws.listen(port);
 
 vows.describe('webservice/').addBatch({
@@ -33,10 +30,10 @@ vows.describe('webservice/').addBatch({
         assert.equal (body[0], '<');
       }
     },
-    "a request against /demo": {
+    "a request against /": {
       topic: function() {
         var options = {
-          uri: host + ':' + port + '/demo'
+          uri: host + ':' + port + '/'
         };
         
         request(options, this.callback)
@@ -48,27 +45,10 @@ vows.describe('webservice/').addBatch({
         assert.equal (body[0], '<');
       }
     },
-    "a request against /demo.json": {
+    "a GET request against /echo": {
       topic: function() {
         var options = {
-          uri: host + ':' + port + '/demo.json'
-        };
-        
-        request(options, this.callback)
-      },
-      "should respond with 200": function (error, response, body) {
-        assert.equal(response.statusCode, 200);
-      },
-      "should respond with a JSON view of the module exports": function (error, response, body) {
-        var result = JSON.parse(body); 
-        assert.isObject(result);
-        assert.isUndefined(result.error);
-      }
-    },
-    "a GET request against /demo/echo": {
-      topic: function() {
-        var options = {
-          uri: host + ':' + port + '/demo/echo',
+          uri: host + ':' + port + '/echo',
           method: 'GET'
         };
         
@@ -78,10 +58,10 @@ vows.describe('webservice/').addBatch({
         assert.equal(response.statusCode, 200);
       }
     },
-    "a GET request against /demo/echo/ohai": {
+    "a GET request against /echo/ohai": {
       topic: function() {
         var options = {
-          uri: host + ':' + port + '/demo/echo/ohai',
+          uri: host + ':' + port + '/echo/ohai',
           method: 'GET'
         };
         
@@ -95,10 +75,10 @@ vows.describe('webservice/').addBatch({
         assert.equal(result, 'ohai');
       }
     },
-    "a GET request against /demo/echo/ohai/": {
+    "a GET request against /echo/ohai/": {
       topic: function() {
         var options = {
-          uri: host + ':' + port + '/demo/echo/ohai/',
+          uri: host + ':' + port + '/echo/ohai/',
           method: 'GET'
         };
         
@@ -112,10 +92,10 @@ vows.describe('webservice/').addBatch({
         assert.equal(result, 'ohai');
       }
     },
-    "a GET request against /demo/echo/1": {
+    "a GET request against /echo/1": {
       topic: function() {
         var options = {
-          uri: host + ':' + port + '/demo/echo/1',
+          uri: host + ':' + port + '/echo/1',
           method: 'GET'
         };
         
@@ -129,10 +109,10 @@ vows.describe('webservice/').addBatch({
         assert.equal(result, '1');
       }
     },
-    "a GET request against /demo/echo/1/": {
+    "a GET request against /echo/1/": {
       topic: function() {
         var options = {
-          uri: host + ':' + port + '/demo/echo/1/',
+          uri: host + ':' + port + '/echo/1/',
           method: 'GET'
         };
         
@@ -146,10 +126,10 @@ vows.describe('webservice/').addBatch({
         assert.equal(result, '1');
       }
     },
-    "a POST request to /demo/echo": {
+    "a POST request to /echo": {
       topic: function() {
         var options = {
-          uri: host + ':' + port + '/demo/echo/',
+          uri: host + ':' + port + '/echo/',
           method: 'POST',
           body: JSON.stringify(["ohai", "helo"])
         };
@@ -163,10 +143,10 @@ vows.describe('webservice/').addBatch({
         assert.equal(body, '"ohai"');
       }
     },
-    "a GET request against /demo/ping": {
+    "a GET request against /ping": {
       topic: function() {
         var options = {
-          uri: host + ':' + port + '/demo/ping',
+          uri: host + ':' + port + '/ping',
           method: 'GET'
         };
         
@@ -180,10 +160,10 @@ vows.describe('webservice/').addBatch({
         assert.equal(result, 'pong');
       }
     },
-    "a POST request against /demo/ping": {
+    "a POST request against /ping": {
       topic: function() {
         var options = {
-          uri: host + ':' + port + '/demo/ping',
+          uri: host + ':' + port + '/ping',
           method: 'POST'
         };
         

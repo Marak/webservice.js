@@ -30,7 +30,6 @@ exports.private_echo = function(msg){
 };
 
 exports.ping = function(){
-
   this.docs = "this is the ping method. it pongs back at you!";
   this.callback(null, 'pong');
   setTimeout(function(){
