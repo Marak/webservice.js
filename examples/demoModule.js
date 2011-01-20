@@ -10,7 +10,7 @@ exports.echo = function(msg){
   // it's optional
   this.docs = "this is the friggin echo method";
   
-  return msg;
+  this.callback(null, msg);
 };
 
 
@@ -25,19 +25,15 @@ exports.private_echo = function(msg){
   // it's optional
   this.docs = "this is kinda private, not really.";
   
-  return msg;
+  this.callback(null, msg);
+  
 };
 
-exports.ping = function(callback){
+exports.ping = function(){
 
   this.docs = "this is the ping method. it pongs back at you!";
-
-  if(typeof callback !== 'function'){
-    return 'pong, with no callback';
-  }
- 
+  this.callback(null, 'pong');
   setTimeout(function(){
-    callback(null, 'pong');
   }, 2000);
 
 }

@@ -68,7 +68,7 @@ vows.describe('webservice/').addBatch({
     "a GET request against /demo/echo": {
       topic: function() {
         var options = {
-          uri: host + ':' + port + '/demo/echo/',
+          uri: host + ':' + port + '/demo/echo',
           method: 'GET'
         };
         
@@ -163,27 +163,10 @@ vows.describe('webservice/').addBatch({
         assert.equal(body, '"ohai"');
       }
     },
-    "a GET request against /demo/ping (no callback)": {
+    "a GET request against /demo/ping": {
       topic: function() {
         var options = {
-          uri: host + ':' + port + '/demo/ping/',
-          method: 'GET'
-        };
-        
-        request(options, this.callback)
-      },
-      "should respond with 200": function (error, response, body) {
-        assert.equal(response.statusCode, 200);
-      },
-      "should respond with pong instantly (no callback)": function (error, response, body) {
-        var result = JSON.parse(body); 
-        assert.equal(result, 'pong, with no callback');
-      }
-    },
-    "a GET request against /demo/ping/async/": {
-      topic: function() {
-        var options = {
-          uri: host + ':' + port + '/demo/ping/async/',
+          uri: host + ':' + port + '/demo/ping',
           method: 'GET'
         };
         
@@ -197,27 +180,10 @@ vows.describe('webservice/').addBatch({
         assert.equal(result, 'pong');
       }
     },
-    "a POST request against /demo/ping/ (no callback)": {
+    "a POST request against /demo/ping": {
       topic: function() {
         var options = {
-          uri: host + ':' + port + '/demo/ping/',
-          method: 'POST'
-        };
-        
-        request(options, this.callback)
-      },
-      "should respond with 200": function (error, response, body) {
-        assert.equal(response.statusCode, 200);
-      },
-      "should respond with pong instantly (no callback)": function (error, response, body) {
-        var result = JSON.parse(body); 
-        assert.equal(result, 'pong, with no callback');
-      }
-    },
-    "a POST request against /demo/ping/async": {
-      topic: function() {
-        var options = {
-          uri: host + ':' + port + '/demo/ping/async',
+          uri: host + ':' + port + '/demo/ping',
           method: 'POST'
         };
         
