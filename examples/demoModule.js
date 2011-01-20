@@ -1,6 +1,19 @@
-// demo module
 
+// demo module
 exports.echo = function(msg){
+
+  // this.verbs defaults to: ['GET','POST','PUT','DELETE']
+  // optionally we can restrict verbs
+  this.verbs = ['GET', 'POST'];
+  
+  // this.private defaults to: false
+  // optionally we can restrict methods to be "private"
+  this.private = true;
+
+  // this.docs is used to store a quick description of the method 
+  // it's optional
+  this.docs = "this is the friggin echo method";
+  
   return msg;
 };
 

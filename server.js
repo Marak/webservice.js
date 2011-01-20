@@ -1,5 +1,5 @@
 var webservice = require('./lib/webservice'),
-    demoModule = require('./demoModule'),
+    demoModule = require('./examples/demoModule'),
     fs         = require('fs'),
     sys        = require('sys'),
     assert     = require('assert');
