@@ -1,5 +1,5 @@
 # webservice.js - turn node.js modules into web-services
-#### v0.3.0
+#### v0.4.0
 webservice.js is a node.js module that allows developers to easily create RESTFul web-services based on the exports of node.js modules
 
 ## installation
