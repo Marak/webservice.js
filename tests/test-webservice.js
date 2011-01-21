@@ -94,6 +94,21 @@ vows.describe('webservice/').addBatch({
         assert.equal(result, '1');
       }
     },
+    "a GET request against /aJSONPService?callback=jsonp1295581437634": {
+      topic: function() {
+        var options = {
+          uri: host + ':' + port + '/aJSONPService',
+          method: 'POST',
+          body: JSON.stringify({msg:"ohai"})          
+        }
+      },
+      "should respond with 200": function (error, response, body) {
+        assert.equal(response.statusCode, 200);
+      },
+      "should respond with ohai": function (error, response, body) {
+        assert.equal(body, '"ohai"');
+      }
+    },
     "a POST request to /echo with JSON": {
       topic: function() {
         var options = {
