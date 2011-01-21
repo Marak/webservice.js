@@ -8,6 +8,7 @@ exports.echo = function(options, callback){
   callback(null, options.msg);
   
 };
+exports.echo.docs = "this is the echo method, it echos back your msg";
 
 exports.ping = function(options, callback){
 
@@ -16,3 +17,4 @@ exports.ping = function(options, callback){
   }, 2000);
 
 }
+exports.ping.docs = "this is the ping method, it pongs back."
