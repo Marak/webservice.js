@@ -1,8 +1,23 @@
 # warning - library is under active dev. docs and blog are currently out of sync, will be updating soon.
 
 # webservice.js - turn node.js modules into web-services
-#### v0.4.3
-webservice.js is a node.js module that allows developers to easily create RESTFul web-services based on the exports of node.js modules
+#### v0.4.4
+webservice.js is a somewhat opinionated node.js library that allows developers to easily create RESTFul web-services based on the exports of node.js modules. Having to deal with both implementing and consuming 100s of web-services over the past ten years, I've grown bitter of web-services with arbitrary restrictions, poor documentation, and piles of boiler-plate code. webservice.js tries to solve these problems by implementing RESTFul principals in a much more relaxed fashion. 
+
+webservice.js also plays very nice with node's httpServer and other middleware frameworks ( such as Connect ).
+
+
+## FEATURES
+
+- Instantly create a  RESTful web-service from a node.js module
+- Regular JavaScript methods are automatically transformed into API methods for your web-service
+- Data can be posted to any webservice.js end-point as JSON, query string, or form data.
+- By default, HTTP Verbs and Content-Type are not strictly enforced
+- Can export as an httpServer request handler
+- Can export an a httpServer instance
+- Works as a middle-ware in Connect or stack
+
+Regular JavaScript methods are automatically transformed into API methods for your web-service. Data can be posted to any webservice.js end-point as JSON, query string, or form data. By default, HTTP Verbs, Content-Type, and  are not strictly enforced. Content-type
 
 ## installation
 
@@ -15,12 +30,6 @@ webservice.js is a node.js module that allows developers to easily create RESTFu
 <pre>
   npm install webservice
 </pre>
-
-## FEATURES
-
-- Creates RESTful web-services from node.js modules
-- Can export an httpServer instance
-- Works as a middle-ware in Connect or stack
 
 ## Setting up a webservice
 
@@ -59,83 +68,7 @@ webservice.js is a node.js module that allows developers to easily create RESTFu
 
 #### demoModule.js
 
-    // demo module
-    exports.echo = function(msg){
-
-      // this.verbs defaults to: ['GET','POST','PUT','DELETE']
-      // optionally we can restrict verbs
-      this.verbs = ['GET', 'POST'];
-  
-      // this.docs is used to store a quick description of the method 
-      // it's optional
-      this.docs = "this is the friggin echo method";
-  
-      this.callback(null, msg);
-    };
-
-
-    exports.private_echo = function(msg){
-
-      // this.private defaults to: false
-      // optionally we can restrict methods to be "private"
-      // right now, a "private" method still exists to the public, but is hidden from documentation
-      this.private = true;
-
-      // this.docs is used to store a quick description of the method 
-      // it's optional
-      this.docs = "this is kinda private, not really.";
-  
-      this.callback(null, msg);
-  
-    };
-
-    exports.ping = function(){
-      this.docs = "this is the ping method. it pongs back at you!";
-      this.callback(null, 'pong');
-      setTimeout(function(){
-      }, 2000);
-
-    }
-
 ## Usage
-
-after starting up server.js, we can navigate to any of the following pages to get html documentation.
-
- - [http://localhost:8080/demo](http://localhost:8080/demo)
- - [http://localhost:8080/fs](http://localhost:8080/fs)
- - [http://localhost:8080/sys](http://localhost:8080/sys)
-
-we can also append ".json" to the end of any of these resources to get the documentation in JSON. 
-
- - [http://localhost:8080/demo.json](http://localhost:8080/demo.json)
- - [http://localhost:8080/fs.json](http://localhost:8080/fs.json)
- - [http://localhost:8080/sys.json](http://localhost:8080/sys.json)
-
-### invoking webservice methods
-
-     curl http://localhost:8080/demo/echo/hello
-     "hello"
-
-     curl http://localhost:8080/sys/puts/hello
-     (outputs "hello" to the server's console)
-
-     curl http://localhost:8080/fs/readFile/server.js/async
-     (returns contents of the server.js file)
-
-     curl http://localhost:8080/fs/writeFile/bar.txt/foo/binary/async
-     (waits for bar.txt file to create with "foo" as content)
-
-#### POST
-
-[http://localhost:8080/fs/writeFile](http://localhost:8080/fs/writeFile)
-
-     {['foo.txt', 'content of file']}
-
-[http://localhost:8080/demo/echo](http://localhost:8080/demo/echo)
-
-
-     {['hello']}
-
 
 ## tests
 
@@ -143,11 +76,6 @@ tests are good. npm install vows, then run:
 
      vows tests/*
 
-## todo
-
-- add better POST support. 
-- add better content type / mime type handling
-- add better HTTP verb support
 
 ## author
 
