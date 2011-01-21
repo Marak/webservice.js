@@ -1,7 +1,7 @@
 // demo module
 exports.echo = function(options, callback){
 
-  if(!options.msg.length){
+  if(!options.msg){
     callback("missing arguments");
   }
 

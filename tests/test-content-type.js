@@ -7,7 +7,7 @@ var vows       = require('vows'),
     sys        = require('sys'),
     eyes       = require('eyes');
 
-var port = 8082,
+var port = 8081,
     host  = 'http://localhost';
 
 var ws = webservice.createServer(demoModule);
@@ -18,7 +18,10 @@ vows.describe('webservice/').addBatch({
     "a request against /": {
       topic: function() {
         var options = {
-          uri: host + ':' + port
+          uri: host + ':' + port,
+          headers: {
+            'Content-Type': 'text/html'
+          }
         };
         
         request(options, this.callback)
@@ -34,13 +37,18 @@ vows.describe('webservice/').addBatch({
       topic: function() {
         var options = {
           uri: host + ':' + port + '/echo',
-          method: 'GET'
+          method: 'GET',
+          headers: {
+            'Content-Type': 'text/html'
+          }
         };
-        
         request(options, this.callback)
       },
       "should respond with 200": function (error, response, body) {
         assert.equal(response.statusCode, 200);
+        console.log(response.headers);
+        assert.equal(response.headers['content-type'], 'text/html');
+
       }
     },
     "a GET request against /echo?msg=ohai": {
