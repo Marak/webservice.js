@@ -21,7 +21,7 @@ exports.ping = function(options, callback){
   }, 2000);
 
 }
-exports.ping.docs = "this is the ping method, it pongs back.";
+exports.ping.docs = "this is the ping method, it pongs back after a 2 second delay";
 
 
 exports.signup = function(options, callback){

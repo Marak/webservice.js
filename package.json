@@ -1,7 +1,7 @@
 {
   "name": "webservice",
   "description": "turns modules into RESTFul web-services",
-  "version": "0.4.5",
+  "version": "0.4.6",
   "author": "Marak Squires <marak.squires@gmail.com>",
   "repository": {
       "type": "git",
@@ -9,6 +9,11 @@
   },
   "keywords": ["webservice", "REST", "web-service", "JSON"],
   "main": "./lib/webservice",
+  "dependencies": {
+    "eyes": ">= 0.1.6",
+    "journey": ">= 0.2.8",
+    "vows": ">= 0.5.2"
+  },
   "scripts": { "test": "vows" },
   "engines": { "node": ">= 0.2.0" }
 }
