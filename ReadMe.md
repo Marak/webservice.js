@@ -7,12 +7,16 @@ webservice.js is a somewhat opinionated node.js library that allows developers t
 webservice.js also plays very nice with node's httpServer and other middleware frameworks ( such as Connect ).
 
 
-## FEATURES
+## WEBSERVICE FEATURES
 
-- Instantly create a  RESTful web-service from a node.js module
-- Regular JavaScript methods are automatically transformed into API methods for your web-service
+- Instantly create a RESTful web-service from a node.js module
+- Built-in JSON-schema validation for incoming data provided via Resourcer
 - Data can be posted to any webservice.js end-point as JSON, query string, or form data.
 - By default, HTTP Verbs and Content-Type are not strictly enforced
+
+## INTEGRATION FEATURES
+
+- Regular node.js modules are automatically transformed into API methods for your web-service
 - Can export as an httpServer request handler
 - Can export an a httpServer instance
 - Works as a middle-ware in Connect or stack

@@ -1,5 +1,7 @@
 // demo module
 
+this.name = "demo api module";
+this.version = "0.1.0";
 
 exports.echo = function(options, callback){
   callback(null, options.msg);
@@ -20,3 +22,25 @@ exports.ping = function(options, callback){
 
 }
 exports.ping.docs = "this is the ping method, it pongs back.";
+
+
+exports.signup = function(options, callback){
+  
+};
+
+exports.signup.options = {
+  firstname: { 
+    type: 'string',
+    optional: false 
+  },
+  lastname: { 
+    type: 'string',
+    optional: false 
+  },
+  email: { 
+    type: 'string',
+    optional: false 
+  }
+  
+  
+};
