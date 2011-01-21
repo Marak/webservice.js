@@ -9,6 +9,12 @@ exports.echo = function(options, callback){
   
 };
 exports.echo.docs = "this is the echo method, it echos back your msg";
+exports.echo.options = {
+  msg: { 
+    type: 'string',
+    optional: false 
+  },
+};
 
 exports.ping = function(options, callback){
 

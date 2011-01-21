@@ -24,14 +24,14 @@ sys.inherits(User, events.EventEmitter);
 resourcer.env = User.env = 'development';
 
 User.prototype.init = function (options) {
-  var ipAddress = options.ipAddress || "127.0.0.1", 
-      port = options.port || 5984, 
-      auth = { auth: options.auth ? options.auth : {} },
+  var ipAddress ="127.0.0.1", 
+      port = 5984,
+      auth = {},
       self = this;
   
   var self = this;
   this.resource = resourcer.defineResource('User', function () {
-    this.use('database');
+    this.use('memory');
     this.connect(ipAddress, port, auth);
     
     // Create default properties

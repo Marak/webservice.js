@@ -13,12 +13,7 @@ Users.on('init', function(err, User){
   Users.resource.all(function(err, results){
     console.log(err, results);
   });
-  webservice.createServer({
-    'demo': demoModule,
-    'Users': Users.resource,
-    'fs': fs,
-    'sys': sys
-  }).listen(8080);
+  webservice.createServer(Users.resource).listen(8080);
   
 });
 
