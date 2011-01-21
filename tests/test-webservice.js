@@ -109,11 +109,12 @@ vows.describe('webservice/').addBatch({
         assert.equal(result, '1');
       }
     },
-    "a GET request against /echo/1/": {
+    "a POST request to /echo with JSON": {
       topic: function() {
         var options = {
-          uri: host + ':' + port + '/echo/1/',
-          method: 'GET'
+          uri: host + ':' + port + '/echo',
+          method: 'POST',
+          body: JSON.stringify({msg:"ohai"})
         };
         
         request(options, this.callback)
@@ -121,17 +122,16 @@ vows.describe('webservice/').addBatch({
       "should respond with 200": function (error, response, body) {
         assert.equal(response.statusCode, 200);
       },
-      "should respond with 1": function (error, response, body) {
-        var result = JSON.parse(body); 
-        assert.equal(result, '1');
+      "should respond with ohai": function (error, response, body) {
+        assert.equal(body, '"ohai"');
       }
     },
-    "a POST request to /echo": {
+    "a POST request to /echo with form data": {
       topic: function() {
         var options = {
-          uri: host + ':' + port + '/echo/',
+          uri: host + ':' + port + '/echo',
           method: 'POST',
-          body: JSON.stringify(["ohai", "helo"])
+          body: "msg=ohai&bar=lol"
         };
         
         request(options, this.callback)
