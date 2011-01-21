@@ -30,21 +30,6 @@ vows.describe('webservice/').addBatch({
         assert.equal (body[0], '<');
       }
     },
-    "a request against /": {
-      topic: function() {
-        var options = {
-          uri: host + ':' + port + '/'
-        };
-        
-        request(options, this.callback)
-      },
-      "should respond with 200": function (error, response, body) {
-        assert.equal(response.statusCode, 200);
-      },
-      "should respond with an html view of the module exports": function (error, response, body) {
-        assert.equal (body[0], '<');
-      }
-    },
     "a GET request against /echo": {
       topic: function() {
         var options = {
