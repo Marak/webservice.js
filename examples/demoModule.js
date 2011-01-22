@@ -49,5 +49,22 @@ exports.user = function(options, callback){
   }
   
 };
-
+exports.user.restful = true;
+exports.user.options = {
+	"name":{"type":"string"},
+	"nickname":{"type":"string","optional":true},
+	"url":{"type":"string","format":"url","optional":true},
+	"email":{
+		"type":"object",
+		"properties":{
+			"type":{"type":"string"},
+			"value":{"type":"string","format":"email"}},
+		"optional":true},
+	"tel":{
+		"type":"object",
+		"properties":{
+			"type":{"type":"string"},
+			"value":{"type":"string","format":"phone"}},
+		"optional":true}
+	};
 exports.user.docs = "user is a restful resource. its actions will depend on the type of http verb you specify.";
