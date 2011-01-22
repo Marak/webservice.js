@@ -24,23 +24,30 @@ exports.ping = function(options, callback){
 exports.ping.docs = "this is the ping method, it pongs back after a 2 second delay";
 
 
-exports.signup = function(options, callback){
+exports.user = function(options, callback){
+  
+  
+  switch(this.request.method){
+    
+    case 'GET':
+      return callback(null, 'got the resource');
+    break;
+
+    case 'POST':
+      return callback(null, 'created the resource');
+    break;
+
+    case 'UPDATE':
+      return callback(null, 'updated the resource');
+    break;
+    
+    case 'DELETE':
+      return callback(null, 'deleted the resource');
+    break;
+      
+    
+  }
   
 };
 
-exports.signup.options = {
-  firstname: { 
-    type: 'string',
-    optional: false 
-  },
-  lastname: { 
-    type: 'string',
-    optional: false 
-  },
-  email: { 
-    type: 'string',
-    optional: false 
-  }
-  
-  
-};
+exports.user.docs = "user is a restful resource. its actions will depend on the type of http verb you specify.";
