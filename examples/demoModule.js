@@ -2,6 +2,7 @@
 this.title = "Welcome to your webservice!";
 this.name = "demo api module";
 this.version = "0.1.0";
+this.endpoint = "http://localhost:8080";
 
 exports.echo = function(options, callback){
   callback(null, options.msg);

@@ -64,8 +64,7 @@ vows.describe('webservice/').addBatch({
         assert.equal(response.statusCode, 200);
       },
       "should respond with ohai": function (error, response, body) {
-        var result = JSON.parse(body); 
-        assert.equal(result, 'ohai');
+        assert.equal(result, body);
       }
     },
     "a GET request against /echo?msg=ohai": {
@@ -81,8 +80,7 @@ vows.describe('webservice/').addBatch({
         assert.equal(response.statusCode, 200);
       },
       "should respond with ohai": function (error, response, body) {
-        var result = JSON.parse(body); 
-        assert.equal(result, 'ohai');
+        assert.equal(body, 'ohai');
       }
     },
     "a GET request against /echo?msg=1": {

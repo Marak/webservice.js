@@ -56,8 +56,7 @@ vows.describe('webservice/').addBatch({
         assert.equal(response.statusCode, 200);
       },
       "should respond with ohai": function (error, response, body) {
-        var result = JSON.parse(body); 
-        assert.equal(result, 'ohai');
+        assert.equal(body, 'ohai');
       }
     },
     "a GET request against /echo?msg=ohai": {
@@ -73,8 +72,7 @@ vows.describe('webservice/').addBatch({
         assert.equal(response.statusCode, 200);
       },
       "should respond with ohai": function (error, response, body) {
-        var result = JSON.parse(body); 
-        assert.equal(result, 'ohai');
+        assert.equal(body, 'ohai');
       }
     },
     "a GET request against /echo?msg=1": {
@@ -90,8 +88,7 @@ vows.describe('webservice/').addBatch({
         assert.equal(response.statusCode, 200);
       },
       "should respond with 1": function (error, response, body) {
-        var result = JSON.parse(body); 
-        assert.equal(result, '1');
+        assert.equal(body, '1');
       }
     },
     "a GET request against /aJSONPService?callback=jsonp1295581437634": {
@@ -123,7 +120,7 @@ vows.describe('webservice/').addBatch({
         assert.equal(response.statusCode, 200);
       },
       "should respond with ohai": function (error, response, body) {
-        assert.equal(body, '"ohai"');
+        assert.equal(body, 'ohai');
       }
     },
     "a POST request to /echo with form data": {
@@ -140,7 +137,7 @@ vows.describe('webservice/').addBatch({
         assert.equal(response.statusCode, 200);
       },
       "should respond with ohai": function (error, response, body) {
-        assert.equal(body, '"ohai"');
+        assert.equal(body, 'ohai');
       }
     },
     "a GET request against /ping": {
@@ -156,8 +153,7 @@ vows.describe('webservice/').addBatch({
         assert.equal(response.statusCode, 200);
       },
       "should respond with pong": function (error, response, body) {
-        var result = JSON.parse(body); 
-        assert.equal(result, 'pong');
+        assert.equal(body, 'pong');
       }
     },
     "a POST request against /ping": {
@@ -173,8 +169,7 @@ vows.describe('webservice/').addBatch({
         assert.equal(response.statusCode, 200);
       },
       "should respond with pong": function (error, response, body) {
-        var result = JSON.parse(body); 
-        assert.equal(result, 'pong');
+        assert.equal(body, 'pong');
       }
     }
     
