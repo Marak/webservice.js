@@ -7,7 +7,7 @@ this.endpoint = "http://localhost:8080";
 exports.echo = function(options, callback){
   callback(null, options.msg);
 };
-exports.echo.docs = "this is the echo method, it echos back your msg";
+exports.echo.description = "this is the echo method, it echos back your msg";
 exports.echo.schema = {
   msg: { 
     type: 'string',
@@ -22,7 +22,7 @@ exports.ping = function(options, callback){
   }, 2000);
 
 }
-exports.ping.docs = "this is the ping method, it pongs back after a 2 second delay";
+exports.ping.description = "this is the ping method, it pongs back after a 2 second delay";
 
 
 exports.user = function(options, callback){
@@ -65,4 +65,4 @@ exports.user.schema = {
     "optional":false
   }
   };
-exports.user.docs = "user is a restful resource. its actions will depend on the type of http verb you specify.";
+exports.user.description = "user is a restful resource. its actions will depend on the type of http verb you specify.";
