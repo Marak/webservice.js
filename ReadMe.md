@@ -1,7 +1,7 @@
 # warning - library is under active dev. docs and blog are currently out of sync, will be updating soon.
 
 # webservice.js - turn node.js modules into web-services
-#### v0.4.7
+#### v0.4.8
 webservice.js is a somewhat opinionated node.js library that allows developers to easily create RESTFul web-services based on the exports of node.js modules. Having to deal with both implementing and consuming 100s of web-services over the past ten years, I've grown bitter of web-services with arbitrary restrictions, poor documentation, and piles of boiler-plate code. webservice.js tries to solve these problems by implementing RESTFul principals in a much more relaxed fashion. 
 
 webservice.js also plays very nice with node's httpServer and other middleware frameworks ( such as Connect ).
