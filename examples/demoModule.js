@@ -8,7 +8,7 @@ exports.echo = function(options, callback){
   callback(null, options.msg);
 };
 exports.echo.docs = "this is the echo method, it echos back your msg";
-exports.echo.options = {
+exports.echo.schema = {
   msg: { 
     type: 'string',
     optional: false 
@@ -56,7 +56,7 @@ exports.user = function(options, callback){
   
 };
 exports.user.restful = true;
-exports.user.options = {
+exports.user.schema = {
   "name":{"type":"string"},
   "nickname":{"type":"string","optional":true},
   "url":{"type":"string","format":"url","optional":true},

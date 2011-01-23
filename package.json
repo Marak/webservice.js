@@ -14,6 +14,6 @@
     "journey": ">= 0.2.8",
     "vows": ">= 0.5.2"
   },
-  "scripts": { "test": "vows" },
+  "scripts": { "test": "vows", "start": "server.js" },
   "engines": { "node": ">= 0.2.0" }
 }
