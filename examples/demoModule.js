@@ -32,23 +32,23 @@ exports.user = function(options, callback){
     
     case 'GET':
       if(options.id){
-        return callback(null, 'got resource for ' + options.id);
+        return callback(null, 'got the user with id ' + options.id);
       }
       else{
-        return callback(null, 'got all resource');
+        return callback(null, 'got all users');
       }
     break;
 
     case 'POST':
-      return callback(null, 'created the resource');
+      return callback(null, 'created a user with id ' + options.id + ' and arguments: ' + JSON.stringify(options));
     break;
 
     case 'UPDATE':
-      return callback(null, 'updated the resource');
+      return callback(null, 'updated the user with id' + options.id);
     break;
     
     case 'DELETE':
-      return callback(null, 'deleted the resource');
+      return callback(null, 'deleted the user with id' + options.id);
     break;
       
     
@@ -57,20 +57,12 @@ exports.user = function(options, callback){
 };
 exports.user.restful = true;
 exports.user.options = {
-	"name":{"type":"string"},
-	"nickname":{"type":"string","optional":true},
-	"url":{"type":"string","format":"url","optional":true},
-	"email":{
-		"type":"object",
-		"properties":{
-			"type":{"type":"string"},
-			"value":{"type":"string","format":"email"}},
-		"optional":true},
-	"tel":{
-		"type":"object",
-		"properties":{
-			"type":{"type":"string"},
-			"value":{"type":"string","format":"phone"}},
-		"optional":true}
-	};
+  "name":{"type":"string"},
+  "nickname":{"type":"string","optional":true},
+  "url":{"type":"string","format":"url","optional":true},
+  "email":{
+    "type":"string",
+    "optional":false
+  }
+  };
 exports.user.docs = "user is a restful resource. its actions will depend on the type of http verb you specify.";
