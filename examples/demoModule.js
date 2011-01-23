@@ -1,5 +1,5 @@
 // demo module
-
+this.title = "Welcome to your webservice!";
 this.name = "demo api module";
 this.version = "0.1.0";
 
@@ -30,7 +30,12 @@ exports.user = function(options, callback){
   switch(this.request.method){
     
     case 'GET':
-      return callback(null, 'got the resource');
+      if(options.id){
+        return callback(null, 'got resource for ' + options.id);
+      }
+      else{
+        return callback(null, 'got all resource');
+      }
     break;
 
     case 'POST':
