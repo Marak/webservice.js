@@ -1,8 +1,8 @@
 # warning - library is under active dev. docs and blog are currently out of sync, will be updating soon.
 
 # webservice.js - turn node.js modules into web-services
-#### v0.4.8
-webservice.js is a somewhat opinionated node.js library that allows developers to easily create RESTFul web-services based on the exports of node.js modules. Having to deal with both implementing and consuming 100s of web-services over the past ten years, I've grown bitter of web-services with arbitrary restrictions, poor documentation, and piles of boiler-plate code. webservice.js tries to solve these problems by implementing RESTFul principals in a much more relaxed fashion. 
+#### v0.4.9
+webservice.js is a somewhat opinionated node.js library that allows developers to easily create RESTFul web-services based on the exports of node.js modules. Having to deal with both implementing and consuming 100s of web-services over the past ten years, I've grown bitter of web-services with arbitrary restrictions, poor documentation, and piles of boiler-plate code. webservice.js tries to solve these problems by implementing RESTFul principals in a much more relaxed fashion.
 
 webservice.js also plays very nice with node's httpServer and other middleware frameworks ( such as Connect ).
 
@@ -68,11 +68,35 @@ Regular JavaScript methods are automatically transformed into API methods for yo
 
 
 
-### The demo module
+### demoModule.js
 
-#### demoModule.js
+    this.title = "Welcome to your webservice!";
+    this.name = "demo api module";
+    this.version = "0.1.0";
+    this.endpoint = "http://localhost:8080";
+
+    exports.echo = function(options, callback){
+      callback(null, options.msg);
+    };
+    exports.echo.description = "this is the echo method, it echos back your msg";
+    exports.echo.schema = {
+      msg: { 
+        type: 'string',
+        optional: false 
+      }
+    };
+
+    exports.ping = function(options, callback){
+      setTimeout(function(){
+        callback(null, 'pong');
+      }, 2000);
+    }
+    exports.ping.description = "this is the ping method, it pongs back after a 2 second delay";
+
 
 ## Usage
+
+Once you have started up your web-service, visit http://localhost:8080/docs
 
 ## tests
 

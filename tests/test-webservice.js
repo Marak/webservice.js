@@ -59,22 +59,6 @@ vows.describe('webservice/').addBatch({
         assert.equal(body, 'ohai');
       }
     },
-    "a GET request against /echo?msg=ohai": {
-      topic: function() {
-        var options = {
-          uri: host + ':' + port + '/echo?msg=ohai',
-          method: 'GET'
-        };
-        
-        request(options, this.callback)
-      },
-      "should respond with 200": function (error, response, body) {
-        assert.equal(response.statusCode, 200);
-      },
-      "should respond with ohai": function (error, response, body) {
-        assert.equal(body, 'ohai');
-      }
-    },
     "a GET request against /echo?msg=1": {
       topic: function() {
         var options = {
@@ -89,21 +73,6 @@ vows.describe('webservice/').addBatch({
       },
       "should respond with 1": function (error, response, body) {
         assert.equal(body, '1');
-      }
-    },
-    "a GET request against /aJSONPService?callback=jsonp1295581437634": {
-      topic: function() {
-        var options = {
-          uri: host + ':' + port + '/aJSONPService',
-          method: 'POST',
-          body: JSON.stringify({msg:"ohai"})          
-        }
-      },
-      "should respond with 200": function (error, response, body) {
-        assert.equal(response.statusCode, 200);
-      },
-      "should respond with ohai": function (error, response, body) {
-        assert.equal(body, '"ohai"');
       }
     },
     "a POST request to /echo with JSON": {
@@ -171,8 +140,40 @@ vows.describe('webservice/').addBatch({
       "should respond with pong": function (error, response, body) {
         assert.equal(body, 'pong');
       }
+    },
+    "a GET request against /docs": {
+      topic: function() {
+        var options = {
+          uri: host + ':' + port + '/docs',
+          method: 'GET'
+        };
+        
+        request(options, this.callback)
+      },
+      "should respond with 200": function (error, response, body) {
+        assert.equal(response.statusCode, 200);
+      },
+      "should return html view representing web-service": function (error, response, body) {
+        assert.equal(body[0], '<');
+      }
+    },
+    "a GET request against /docs.json": {
+      topic: function() {
+        var options = {
+          uri: host + ':' + port + '/docs.json',
+          method: 'GET'
+        };
+
+        request(options, this.callback)
+      },
+      "should respond with 200": function (error, response, body) {
+        assert.equal(response.statusCode, 200);
+      },
+      "should return JSON representing web-service": function (error, response, body) {
+        var json = JSON.parse(body);
+        assert.isObject(json);
+      }
     }
-    
   }
 }).addBatch({
     "when the tests are over": {
