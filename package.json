@@ -11,7 +11,7 @@
   "main": "./lib/webservice",
   "dependencies": {
     "eyes": ">= 0.1.6",
-    "journey": ">= 0.2.8",
+    "journey": "= 0.4.0-pre",
     "vows": ">= 0.5.2"
   },
   "scripts": { "test": "vows", "start": "server.js" },
