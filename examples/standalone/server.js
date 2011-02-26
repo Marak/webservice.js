@@ -1,14 +1,7 @@
-var webservice = require('../lib/webservice'),
-    demoModule = require('./modules/demoModule'),
-    fs         = require('fs'),
-    sys        = require('sys'),
-    assert     = require('assert');
+var webservice = require('../../lib/webservice'),
+    demoModule = require('../demoModule');
 
 
-webservice.createServer({
-  'demo': demoModule,
-  'fs': fs,
-  'sys': sys
-}).listen(8080);
+webservice.createServer(demoModule).listen(8080);
 
 console.log(' > json webservice started on port 8080');  
