@@ -3,6 +3,6 @@ var http       = require('http'),
     demoModule = require('../demoModule'),
     handler    = ws.createHandler(demoModule);
 
-http.createServer(handler).listen(8080);
+http.createServer(function(req,res){handler(req,res,function(){})}).listen(8080);
 
 console.log(' > json webservice started on port 8080');  
