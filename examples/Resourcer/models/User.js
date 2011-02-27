@@ -70,4 +70,4 @@ User.prototype.init = function (options) {
   };
 });
 
-exports.Users = new User();
+exports.Users = (new User()).init({});
