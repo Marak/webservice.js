@@ -1,7 +1,5 @@
-# warning - library is under active dev. docs and blog are currently out of sync, will be updating soon.
-
 # webservice.js - turn node.js modules into web-services
-#### v0.4.9
+#### v0.5.0
 webservice.js is a somewhat opinionated node.js library that allows developers to easily create RESTFul web-services based on the exports of node.js modules. Having to deal with both implementing and consuming 100s of web-services over the past ten years, I've grown bitter of web-services with arbitrary restrictions, poor documentation, and piles of boiler-plate code. webservice.js tries to solve these problems by implementing RESTFul principals in a much more relaxed fashion.
 
 webservice.js also plays very nice with node's httpServer and other middleware frameworks ( such as Connect ).
@@ -19,7 +17,7 @@ webservice.js also plays very nice with node's httpServer and other middleware f
 - Regular node.js modules are automatically transformed into API methods for your web-service
 - Can export as an httpServer request handler
 - Can export an a httpServer instance
-- Works as a middle-ware in Connect or stack
+- Works as a ## in Connect or stack
 
 Regular JavaScript methods are automatically transformed into API methods for your web-service. Data can be posted to any webservice.js end-point as JSON, query string, or form data. By default, HTTP Verbs, Content-Type, and  are not strictly enforced. Content-type
 
@@ -37,19 +35,38 @@ Regular JavaScript methods are automatically transformed into API methods for yo
 
 ## Setting up a webservice
 
-### As a standalone httpServer
+### As a standalone webservice server
 
-    var webservice = require('webservice'),
-        demoModule = require('./demoModule');
+    var webservice = require('../lib/webservice'),
+        demoModule = require('./modules/demoModule'),
+        colors     = require('colors');
 
     webservice.createServer(demoModule).listen(8080);
+
+    console.log(' > stand-alone json webservice started on port 8080'.cyan);  
+
+
+### As a handler for http.Server
+
+    var http       = require('http'),
+        ws         = require('../../lib/webservice'),
+        demoModule = require('../sample_modules/demoModule'),
+        colors     = require('colors'),
+        handler    = ws.createHandler(demoModule);
+
+    http.createServer(handler).listen(8080);
+
+    console.log(' > json webservice started on port 8080'.cyan);  
+
+
 
 ### Using Connect
 
     var connect    = require('connect'),
         server     = connect.createServer(),
         webservice = require('../../lib/webservice'),
-        demoModule = require('../demoModule');
+        demoModule = require('../sample_modules/demoModule'),
+        colors     = require('colors');
 
 
     server.use(connect.logger());
@@ -58,15 +75,18 @@ Regular JavaScript methods are automatically transformed into API methods for yo
 
     server.listen(3000);
 
+    console.log('Connect server running on port 3000 with webservice.js'.cyan);
+
 ### Using stack
 
-    var http = require('http');
+    var http   = require('http'),
+        colors = require('colors');
 
     http.createServer(require('stack')(
       require('./webservice.stack')()
     )).listen(8080);
 
-
+    console.log(' > Stack server with webservice.js middleware started on port 8080'.cyan);
 
 ### demoModule.js
 
