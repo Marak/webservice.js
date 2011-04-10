@@ -19,6 +19,7 @@ webservice.js also plays very nice with node's httpServer and other middleware f
 - Can export as an httpServer request handler
 - Can export an a httpServer instance
 - Works as a ## in Connect or stack
+- Can expose .coffee files as web-services
 
 Regular JavaScript methods are automatically transformed into API methods for your web-service. Data can be posted to any webservice.js end-point as JSON, query string, or form data. By default, HTTP Verbs, Content-Type, and  are not strictly enforced. Content-type
 
@@ -88,6 +89,10 @@ Regular JavaScript methods are automatically transformed into API methods for yo
     )).listen(8080);
 
     console.log(' > Stack server with webservice.js middleware started on port 8080'.cyan);
+
+### Using Coffeescript
+
+Using Coffeescript with webservice.js is very simple. There are no changes that need to be made for Coffeescript to work, just follow the example @ [https://github.com/Marak/webservice.js/blob/master/examples/Coffeescript/server.coffee](https://github.com/Marak/webservice.js/blob/master/examples/Coffeescript/server.coffee)
 
 ### demoModule.js
 
