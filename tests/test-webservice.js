@@ -2,7 +2,7 @@ var vows       = require('vows'),
     assert     = require('assert'),
     request    = require('request'),
     webservice = require('../lib/webservice'),
-    demoModule = require('../examples/demoModule'),
+    demoModule = require('../examples/sample_modules/demoModule'),
     fs         = require('fs'),
     sys        = require('sys'),
     eyes       = require('eyes');
@@ -172,6 +172,24 @@ vows.describe('webservice/').addBatch({
       "should return JSON representing web-service": function (error, response, body) {
         var json = JSON.parse(body);
         assert.isObject(json);
+      }
+    },
+    "a GET request against /echo?callback=jsonp1295581437634&msg=ohai": {
+      topic: function() {
+        var options = {
+          uri: host + ':' + port + '/echo?callback=jsonp1295581437634&msg=ohai',
+          method: 'GET'
+        };
+        request(options, this.callback);
+      },
+      "should respond with 200": function (error, response, body) {
+        assert.equal(response.statusCode, 200);
+      },
+      "should respond with JSONP wrapped method called '1295581437634' that returns 'ohai'": function (error, response, body) {
+        var myFN = new Function(body);
+        eval(body);
+        result = jsonp1295581437634();
+        assert.equal(result, 'ohai');
       }
     }
   }

@@ -11,6 +11,7 @@ webservice.js also plays very nice with node's httpServer and other middleware f
 - Built-in JSON-schema validation for incoming data provided via Resourcer
 - Data can be posted to any webservice.js end-point as JSON, query string, or form data.
 - By default, HTTP Verbs and Content-Type are not strictly enforced
+- Built-in JSONP support
 
 ## INTEGRATION FEATURES
 
