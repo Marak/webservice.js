@@ -18,7 +18,7 @@ webservice.js also plays very nice with node's httpServer and other middleware f
 - Regular node.js modules are automatically transformed into API methods for your web-service
 - Can export as an httpServer request handler
 - Can export an a httpServer instance
-- Works as a ## in Connect or stack
+- Works as a middle-ware in Connect or stack
 - Can expose .coffee files as web-services
 
 Regular JavaScript methods are automatically transformed into API methods for your web-service. Data can be posted to any webservice.js end-point as JSON, query string, or form data. By default, HTTP Verbs, Content-Type, and  are not strictly enforced. Content-type
