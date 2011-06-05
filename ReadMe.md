@@ -132,7 +132,7 @@ Once you have started up your web-service, visit http://localhost:8080/docs
 
 tests are good. npm install vows, then run:
 
-     vows tests/*
+     vows test/*
 
 
 ## author
