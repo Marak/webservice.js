@@ -17,8 +17,8 @@ webservice.js also plays very nice with node's httpServer and other middleware f
 
 - Regular node.js modules are automatically transformed into API methods for your web-service
 - Can export as an httpServer request handler
-- Can export an a httpServer instance
-- Works as a middle-ware in Connect or stack
+- Can export as an httpServer instance
+- Works as a middleware in Connect or stack
 - Can expose .coffee files as web-services
 - Auto-documentation of all your web-services
 
@@ -137,4 +137,4 @@ tests are good. npm install vows, then run:
 
 ## author
 
-Marak Squires
+Marak Squires 
