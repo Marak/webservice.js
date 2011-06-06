@@ -15,7 +15,7 @@
   },
   "devDependencies" : {
     "vows": "0.5.x"
-  }
+  },
   "scripts": { "test": "vows", "start": "server.js" },
   "engines": { "node": ">= 0.4.0" }
 }
