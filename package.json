@@ -13,6 +13,9 @@
     "journey": "= 0.4.0-pre",
     "colors": ">= 0.5.0"
   },
+  "devDependencies" : {
+    "vows": "0.5.x"
+  }
   "scripts": { "test": "vows", "start": "server.js" },
   "engines": { "node": ">= 0.4.0" }
 }
