@@ -1,0 +1,12 @@
+{
+  "name"          : "resourcer",
+  "description"   : "resource-oriented object-relational mapper for document databases",
+  "url"           : "http://github.com/cloudhead/resourcer",
+  "keywords"      : ["ORM", "database", "couchdb", "model", "resource"],
+  "author"        : "Alexis Sellier <self@cloudhead.io>",
+  "contributors"  : [],
+  "dependencies"  : ["cradle"],
+  "main"          : "./lib/resourcer",
+  "directories"   : { "test": "./test" },
+  "version"       : "0.1.0-pre"
+}
