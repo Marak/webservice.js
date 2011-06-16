@@ -11,7 +11,8 @@ exports.echo.description = "this is the echo method, it echos back your msg";
 exports.echo.schema = {
   msg: { 
     type: 'string',
-    optional: false 
+    optional: false,
+    message: "msg variable is required"
   }
 };
 

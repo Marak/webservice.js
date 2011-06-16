@@ -1,8 +1,7 @@
 var sys = require('sys');
 var path = require('path');
 
-var resourcer = require('resourcer'),
-    cradle = require('cradle');
+var resourcer = require('resourcer');
 
 resourcer.Cache = require('resourcer/cache').Cache;
 
