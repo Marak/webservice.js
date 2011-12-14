@@ -1,10 +1,16 @@
+<!doctype html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
 <style type="text/css">
 
   html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
   small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
   fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
-  article, aside, canvas, details, figcaption, figure,  footer, header, hgroup, 
+  article, aside, canvas, details, figcaption, figure,  footer, header, hgroup,
   menu, nav, section, summary, time, mark, audio, video {
     margin:0;
     padding:0;
@@ -13,8 +19,8 @@
     font-size:100%;
     vertical-align:baseline;
     background:transparent;
-  }                  
-  article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { 
+  }
+  article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
       display:block;
   }
   nav ul { list-style:none; }
@@ -31,7 +37,7 @@
   input, select { vertical-align:middle; }
 
 
-  body { font:13px/1.231 sans-serif; *font-size:small; } 
+  body { font:13px/1.231 sans-serif; *font-size:small; }
   select, input, textarea, button { font:99% sans-serif; }
   pre, code, kbd, samp { font-family: monospace, sans-serif; }
 
@@ -46,19 +52,19 @@
   ul, ol { margin-left: 1.8em; }
   ol { list-style-type: decimal; }
 
-  nav ul, nav li { margin: 0; } 
+  nav ul, nav li { margin: 0; }
   small { font-size: 85%; }
   strong, th { font-weight: bold; }
-  td, td img { vertical-align: top; } 
+  td, td img { vertical-align: top; }
   sub { vertical-align: sub; font-size: smaller; }
   sup { vertical-align: super; font-size: smaller; }
-  pre { padding: 15px; 
-    white-space: pre;  
+  pre { padding: 15px;
+    white-space: pre;
     white-space: pre-wrap;
     white-space: pre-line;
     word-wrap: break-word; }
-  textarea { overflow: auto; } 
-  .ie6 legend, .ie7 legend { margin-left: -7px; } 
+  textarea { overflow: auto; }
+  .ie6 legend, .ie7 legend { margin-left: -7px; }
   input[type="radio"] { vertical-align: text-bottom; }
   input[type="checkbox"] { vertical-align: bottom; }
   .ie7 input[type="checkbox"] { vertical-align: baseline; }
@@ -66,39 +72,40 @@
   label, input[type=button], input[type=submit], button { cursor: pointer; }
   button, input, select, textarea { margin: 0; }
   input:valid, textarea:valid   {  }
-  input:invalid, textarea:invalid { border-radius: 1px;  
-    -moz-box-shadow: 0px 0px 5px red; 
-    -webkit-box-shadow: 0px 0px 5px red;  
+  input:invalid, textarea:invalid { border-radius: 1px;
+    -moz-box-shadow: 0px 0px 5px red;
+    -webkit-box-shadow: 0px 0px 5px red;
     box-shadow: 0px 0px 5px red; }
-  .no-boxshadow input:invalid, 
+  .no-boxshadow input:invalid,
   .no-boxshadow textarea:invalid { background-color: #f0dddd; }
 
   ::-moz-selection{ background: #710000; color:#fff; text-shadow: none; }
-  ::selection { background:#710000; color:#fff; text-shadow: none; } 
-  a:link { -webkit-tap-highlight-color: #FF5E99; } 
+  ::selection { background:#710000; color:#fff; text-shadow: none; }
+  a:link { -webkit-tap-highlight-color: #FF5E99; }
 
   button {  width: auto; overflow: visible; }
   .ie7 img { -ms-interpolation-mode: bicubic; }
 
   .ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
-  .hidden { display: none; visibility: hidden; } 
+  .hidden { display: none; visibility: hidden; }
   .visuallyhidden { position: absolute !important; clip: rect(1px 1px 1px 1px);  clip: rect(1px, 1px, 1px, 1px); }
   .invisible { visibility: hidden; }
-  .clearfix:before, .clearfix:after {  content: "\0020"; display: block; height: 0; visibility: hidden;	 } 
+  .clearfix:before, .clearfix:after {  content: "\0020"; display: block; height: 0; visibility: hidden;	 }
   .clearfix:after { clear: both; }
   .clearfix { zoom: 1; }
 
   #main {
     padding: 20px;
     height: auto;
-    background: #eeeeee; /* old browsers */
-    margin-left: 200px;
+    background: #eeeef4; /* old browsers */
+    margin-left: 40px;
+    margin-right: 40px;
   }
-  
+
   .grad {
-    background: -moz-linear-gradient(top, #eeeeee 0%, #EAEAEA 100%); /* firefox */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#EAEAEA)); /* webkit */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#EAEAEA',GradientType=0 ); /* ie */    
+    background: -moz-linear-gradient(top, #eeeeee 0%, #ffffff 100%); /* firefox */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#ffffff)); /* webkit */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#ffffff',GradientType=0 ); /* ie */
   }
 
   a { text-decoration: none; }
@@ -109,12 +116,15 @@
     -moz-border-radius-topleft: 6px;
     -moz-border-radius-topright: 6px;
     -webkit-border-top-left-radius: 6px;
-    -webkit-border-top-right-radius: 6px;}
+    -webkit-border-top-right-radius: 6px;
+    background-color:#ffffff;
+
+  }
   .header a {font-size:18px; font-weight: bold;}
   .content{margin:10px 0px 10px 0px;padding: 10px;}
   .curl{color: #888;}
   .verb{color: #607890; font-weight: bold;}
-  .url{color: #000 font-weight: bold;}
+  .url{color: #000; font-weight: bold;}
   .descriptor{margin: 10px 0px 0px 0px;}
   .sub{font-weight: bold;}
   .member{border:1px solid #ddd;
@@ -130,9 +140,49 @@
    div.form div.field input {display:table-cell; width:300px; margin-top:3px; margin-bottom:3px;}
    div.form div.button {position:relative; left:100px; width:300px; margin-top:3px; margin-bottom:3px;}
 
+    .toggle{
+        float:right;
+        margin-right: 10px;
+    }
+
+    .allcontent{
+        display: none;
+    }
 </style>
+
+    </head>
+
+
+
+
+
 <body>
   <div id="main" class="grad">
     {{body}}
   </div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+$(function(){
+$('.toggle').click(function(el){
+    var tgt = $(el.currentTarget);
+
+    if(tgt.text() == 'Hide'){
+        tgt.parent().siblings('.allcontent').hide('slow');
+        tgt.text('Show');
+    }else{
+        tgt.parent().siblings('.allcontent').show('slow');
+        tgt.text('Hide');
+    }
+    return false;
+
+});
+});
+
+
+</script>
+
+
 </body>
+</html>

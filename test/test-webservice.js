@@ -1,7 +1,7 @@
 var vows       = require('vows'),
     assert     = require('assert'),
     request    = require('request'),
-    webservice = require('../lib/webservice'),
+    webservice = require('../lib/webservice.js'),
     demoModule = require('../examples/sample_modules/demoModule'),
     fs         = require('fs'),
     sys        = require('sys'),

@@ -17,6 +17,6 @@
     "vows": "0.5.x",
     "request": "1.9.x"
   },
-  "scripts": { "test": "vows", "start": "server.js" },
+  "scripts": { "test": "vows test/*.js", "start": "server.js" },
   "engines": { "node": ">= 0.4.0" }
 }
