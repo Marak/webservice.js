@@ -23,3 +23,22 @@ exports.ping = function(options, callback){
 }
 exports.ping.description = "this is the ping method, it pongs back after a 2 second delay";
 
+
+
+
+exports.customPattern = function(options, callback){
+  callback(null, options);
+};
+
+
+exports.customPattern.pattern = /(customPattern)\/(secondLevel)\/([^\/]*?)\/?/; // e.g. /customPattern/secondLevel/12345/
+
+exports.customPattern.description = "this is the custom pattern method";
+exports.customPattern.schema = {
+  msg: {
+    type: 'string',
+    optional: false,
+    message: "msg variable is required"
+  }
+};
+
