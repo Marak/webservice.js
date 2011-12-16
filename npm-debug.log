@@ -1,0 +1,39 @@
+info it worked if it ends with ok
+verbose cli [ 'node', '/home/davidh/bin/bin/npm', 'test' ]
+info using npm@1.1.0-alpha-6
+info using node@v0.6.5
+verbose config file /home/davidh/.npmrc
+verbose config file /home/davidh/bin/etc/npmrc
+verbose config file /home/davidh/bin/lib/node_modules/npm/npmrc
+verbose caching /home/davidh/dev/TriggeredMessagingV1/node/webservice.js/package.json
+verbose loadDefaults webservice@0.5.1
+verbose run-script [ 'pretest', 'test', 'posttest' ]
+info pretest webservice@0.5.1
+info test webservice@0.5.1
+verbose unsafe-perm in lifecycle true
+silly exec sh "-c" "vows test/*.js"
+silly spawning [ 'sh',
+silly spawning   [ '-c', 'vows test/*.js' ],
+silly spawning   '/home/davidh/dev/TriggeredMessagingV1/node/webservice.js' ]
+info webservice@0.5.1 Failed to exec test script
+ERR! webservice@0.5.1 test: `vows test/*.js`
+ERR! `sh "-c" "vows test/*.js"` failed with 1
+ERR! 
+ERR! Failed at the webservice@0.5.1 test script.
+ERR! This is most likely a problem with the webservice package,
+ERR! not with npm itself.
+ERR! Tell the author that this fails on your system:
+ERR!     vows test/*.js
+ERR! You can get their info via:
+ERR!     npm owner ls webservice
+ERR! There is likely additional logging output above.
+ERR! 
+ERR! System Linux 2.6.38-12-generic
+ERR! command "node" "/home/davidh/bin/bin/npm" "test"
+ERR! cwd /home/davidh/dev/TriggeredMessagingV1/node/webservice.js
+ERR! node -v v0.6.5
+ERR! npm -v 1.1.0-alpha-6
+ERR! code ELIFECYCLE
+ERR! message webservice@0.5.1 test: `vows test/*.js`
+ERR! message `sh "-c" "vows test/*.js"` failed with 1
+verbose exit [ 1, true ]
