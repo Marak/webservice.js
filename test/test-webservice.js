@@ -5,6 +5,7 @@ var port = 8082, host = 'http://localhost';
 var ws = webservice.createServer(demoModule);
 ws.listen(port);
 
+
 vows.describe('webservice/').addBatch({
     "When using webservice with test configuration": {
         "a request against /": {
@@ -125,6 +126,7 @@ vows.describe('webservice/').addBatch({
                 };
 
                 request(options, this.callback)
+
             },
             "should respond with 200": function(error, response, body) {
                 assert.equal(response.statusCode, 200);
@@ -197,9 +199,26 @@ vows.describe('webservice/').addBatch({
                 assert.equal(response.statusCode, 200);
             },
             "should respond with 1": function(error, response, body) {
-                assert.equal(body,  '{"msg":"1","_captures":["customPattern","secondLevel",12345],"_resource":"customPattern","_id":"secondLevel"}');
+                assert.equal(body, '{"msg":"1","_captures":["customPattern","secondLevel",12345],"_resource":"customPattern","_id":"secondLevel"}');
             }
-        }
+        },
+
+        "a GET request against /filteredecho should be filtered and return a 403": {
+                    topic: function() {
+                        var options = {
+                            uri: host + ':' + port + '/filteredecho',
+                            method: 'GET'
+                        };
+
+                        request(options, this.callback)
+                    },
+                    "should respond with 403": function(error, response, body) {
+                        assert.equal(response.statusCode, 403);
+                    },
+                    "should respond with Not Authorized": function(error, response, body) {
+                        assert.equal(body, '{"error":"Not Authorized"}');
+                    }
+                }
     }
 }).addBatch({
         "when the tests are over": {
@@ -213,3 +232,4 @@ vows.describe('webservice/').addBatch({
             }
         }
     }).export(module);
+
