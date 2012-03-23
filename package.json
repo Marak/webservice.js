@@ -1,23 +1,30 @@
 {
-  "name": "webservice",
-  "description": "turns modules into RESTFul web-services",
-  "version": "0.5.1",
-  "author": "Marak Squires <marak.squires@gmail.com>",
-  "repository": {
-      "type": "git",
-      "url": "http://github.com/marak/webservice.js.git" 
-  },
-  "keywords": ["webservice", "REST", "web-service", "JSON"],
-  "main": "./lib/webservice",
-  "dependencies": {
-    "journey": "= 0.4.0-pre-2",
-    "revalidator": ">= 0.1.0",
-    "colors": ">= 0.5.0"
-  },
-  "devDependencies" : {
-    "vows": "0.5.x",
-    "request": "1.9.x"
-  },
-  "scripts": { "test": "vows test/*.js", "start": "server.js" },
-  "engines": { "node": ">= 0.4.0" }
+    "name":"webservice",
+    "description":"turns modules into RESTFul web-services",
+    "version":"0.5.1",
+    "author":"Marak Squires <marak.squires@gmail.com>",
+    "contributors":["David Henderson <dhendo@gmail.com>"],
+    "repository":{
+        "type":"git",
+        "url":"http://github.com/dhendo/webservice.js.git"
+    },
+    "keywords":["webservice", "REST", "web-service", "JSON"],
+    "main":"./lib/webservice",
+    "dependencies":{
+        "journey":"= 0.4.0-pre-3",
+        "revalidator":">= 0.1.0",
+        "colors":">= 0.5.0",
+        "eyes":">= 0.1.7"
+    },
+    "devDependencies":{
+        "vows":"0.5.x",
+        "request":"1.9.x"
+    },
+    "scripts":{
+        "test":"vows test/*.js",
+        "start":"server.js"
+    },
+    "engines":{
+        "node":">= 0.4.0"
+    }
 }
