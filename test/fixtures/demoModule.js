@@ -54,3 +54,39 @@ exports._filter = function(request, body, callback) {
     // Otherwise return Ok.
     callback(null);
 }
+
+
+
+//
+// Here are some RESTFul mapping
+//
+
+var turtle = {};
+
+exports.turtle = turtle;
+
+// GET /
+turtle.list = function () {
+  console.log('show all turtles.')
+};
+
+// POST /
+turtle.create = function () {
+  console.log('create a new turtle.')
+};
+
+// GET /:id
+turtle.show = function () {
+  console.log('get a turtle by :id')
+};
+
+// PUT /:id
+turtle.update = function () {
+  console.log('update a turtle by :id')
+  
+};
+
+// DELETE /:id
+turtle.destroy = function () {
+  console.log('destroy a turtle by :id')
+};
