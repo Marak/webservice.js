@@ -1,10 +1,17 @@
-var vows = require('vows'), assert = require('assert'), request = require('request'), webservice = require('../lib/webservice.js'), demoModule = require('../examples/sample_modules/demoModule'), fs = require('fs'), sys = require('sys'), eyes = require('eyes');
+var vows = require('vows'),
+assert = require('assert'),
+request = require('request'),
+webservice = require('../lib/webservice.js'),
+demoModule = require('../examples/sample_modules/demoModule'),
+fs = require('fs'),
+sys = require('sys'),
+eyes = require('eyes');
 
-var port = 8082, host = 'http://localhost';
+var port = 8082,
+    host = 'http://localhost';
 
 var ws = webservice.createServer(demoModule);
 ws.listen(port);
-
 
 vows.describe('webservice/').addBatch({
     "When using webservice with test configuration": {
@@ -180,12 +187,15 @@ vows.describe('webservice/').addBatch({
                 assert.equal(response.statusCode, 200);
             },
             "should respond with JSONP wrapped method called '1295581437634' that returns 'ohai'": function(error, response, body) {
-                var myFN = new Function(body);
+                var jsonp1295581437634 = function(data){
+                  assert.equal(data, 'ohai');
+                };
                 eval(body);
-                result = jsonp1295581437634();
-                assert.equal(result, 'ohai');
             }
-        },
+        }
+
+        /*
+        ,
         "a GET request against /customPattern/secondLevel/12345/?msg=1": {
             topic: function() {
                 var options = {
@@ -219,6 +229,7 @@ vows.describe('webservice/').addBatch({
                         assert.equal(body, '{"error":"Not Authorized"}');
                     }
                 }
+                */
     }
 }).addBatch({
         "when the tests are over": {

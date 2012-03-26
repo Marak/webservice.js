@@ -17,11 +17,11 @@
         "eyes":">= 0.1.7"
     },
     "devDependencies":{
-        "vows":"0.5.x",
+        "vows":"*",
         "request":"1.9.x"
     },
     "scripts":{
-        "test":"vows test/*.js",
+        "test":"vows test/*.js --spec",
         "start":"server.js"
     },
     "engines":{
