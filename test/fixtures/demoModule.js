@@ -1,9 +1,5 @@
 
 // demo module
-this.title = "Welcome to your webservice!";
-this.name = "demo api module";
-this.version = "0.1.0";
-this.endpoint = "http://localhost:8080";
 
 exports.echo = function(options, callback) {
     callback(null, options.msg);
@@ -24,6 +20,7 @@ exports.ping = function(options, callback) {
 }
 exports.ping.description = "this is the ping method, it pongs back after a 2 second delay";
 
+/*
 exports.customPattern = function(options, callback) {
     callback(null, options);
 };
@@ -39,21 +36,8 @@ exports.customPattern.schema = {
     }
 };
 
-exports.filteredecho = function(options, callback) {
-    callback(null, 'The filter did not work');
-}
+*/
 
-exports._filter = function(request, body, callback) {
-
-    // Do some filtering on the request and body
-    if(request.url.pathname == '/filteredecho') {
-        callback(new journey.NotAuthorized('Not Authorized'));
-        return;
-    }
-
-    // Otherwise return Ok.
-    callback(null);
-}
 
 
 
