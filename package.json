@@ -11,7 +11,8 @@
   "main": "./lib/webservice",
   "dependencies": {
     "journey": "= 0.4.0-pre",
-    "colors": ">= 0.5.0"
+    "colors": ">= 0.5.0",
+    "eyes": "0.1.x"    
   },
   "devDependencies" : {
     "vows": "0.5.x",

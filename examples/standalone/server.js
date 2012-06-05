@@ -1,5 +1,5 @@
-var webservice = require('../lib/webservice'),
-    demoModule = require('./modules/demoModule'),
+var webservice = require('../../lib/webservice'),
+    demoModule = require('../sample_modules/demoModule'),
     colors     = require('colors');
 
 webservice.createServer(demoModule).listen(8080);
