@@ -36,21 +36,35 @@ exports.customEcho.schema = {
   }
 };
 
-exports.complexMethod = {
-  description: "this is a complex method",
+var hello = function (options, callback){
+  callback(null, 'hello');
+}
+
+hello.description = "this is the hello method, calls back with a hello"
+
+exports.complexModule = {
+  description: "this is a complex module",
+  module: 'complexModule',
+  compy: hello
+}
+
+
+exports.nestedComplexModule = {
+  description: "this is a highly nested complex module",
+  module: 'nestedComplexModule',
   level1: {
     foo: "bar",
     la: 4,
-    description: "this is the level 1 method",
+    description: "this is the level 1 module",
+    module: 'level1',
     level2: {
-      hello2: function (options, callback){
-        callback(null, 'hello2');
-      },
+      description: "this is the level 2 module",
+      module: 'level2',
+      hello2: hello,
       level3: {
-        description: "this is the level 3 method",
-        hello3: function (options, callback){
-          callback(null, 'hello3');
-        },
+        module: 'level3',
+        description: "this is the level 3 module",
+        hello3: hello
       },
     },
   }
