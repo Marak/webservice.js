@@ -1,7 +1,0 @@
-var ws = require('webservice'),
-    demoModule = require('../sample_modules/demoModule');
-
-module.exports = function setup() {
-  var handler = ws.createHandler(demoModule);
-  return handler;
-};

@@ -1,3 +1,3 @@
-# Project deprecated in favor of <a href="http://flatironjs.org">Flatiron</a>
+# Project moved and renamed to [RESTful](http://github.com/flatiron/restful)
 
-# You can now use <a href="http://github.com/flatiron/director">director</a> routers to get the old functionality of `webservice.js`
+# Better functionality, more features. Good stuff!
